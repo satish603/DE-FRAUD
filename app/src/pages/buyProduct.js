@@ -32,10 +32,12 @@ export default function BuyProduct() {
             if (response) {
                 setSecretId('')
                 setPopup(`Product bought successfully`)
+                alert(`Product bought successfully`)
             }
         }
         catch (error) {
             setPopup("Product is Fake")
+            alert("Product is Fake")
             console.log(error.message)
         }
         finally{
