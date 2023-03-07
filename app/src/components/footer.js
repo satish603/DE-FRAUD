@@ -51,15 +51,15 @@ function Footer() {
                     </div>
                     <div className="col-lg-2 offset-lg-0 col-sm-4 offset-sm-0  list">
 
-                        {/* <h2>Seller</h2> */}
+                        <h2>Seller</h2>
                         <ul >
-                            {/* <li>
-                                <Link to="/sell">Sell</Link>
-                            </li> */}
                             <li>
-                                {/* <Link to="/products">
+                                <Link to="/sell">Sell</Link>
+                            </li>
+                            <li>
+                                <Link to="/products">
                                     Products
-                                </Link> */}
+                                </Link>
                             </li>
                             About Us
                             <li>
@@ -68,14 +68,14 @@ function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                {/* <Link to="/registerSeller">
+                                <Link to="/registerSeller">
                                     Register Seller
-                                </Link> */}
+                                </Link>
                             </li>
                             <li>
-                                {/* <Link to="/side">
+                                <Link to="/side">
                                    Side
-                                </Link> */}
+                                </Link>
                             </li>
                         </ul>
                     </div>

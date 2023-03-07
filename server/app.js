@@ -8,35 +8,6 @@ const userRouter = require('./routes/user');
 const sellerRouter = require('./routes/seller');
 const ownerRouter = require('./routes/owner');
 const app = express();
-const mongoose=require('mongoose')
-var path = require('path');
-var mongodb = require('mongodb');
-var bodyParser = require('body-parser');
-
-// 
-const DB=`mongodb+srv://developer:MReLJ4uZoiUBLXuI@cluster0.pugmd0m.mongodb.net/products?retryWrites=true&w=majority`
-
-// 
-
-
-
-mongoose.connect(DB,
-    
-    ).then(()=>{
-    console.log(`Connection successful`)
-}).catch((err)=> console.log(err));
-
-
-// mongoose.connect(DB, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     });
-// 
-const middleware=(req,res,next)=>{
-    console.log(`Hello my middleware`);
-    next();
-}
-
 
 //jwt check function
 function secure(req, res, next) {
@@ -87,51 +58,16 @@ app.get('/tokenVerify', (req, res) => {
   res.sendStatus(200)
 })
 
-// get driver connection
-// const dbo = require("./db/conn")
-const dbo = require("./db/conn")
-
 // error handler
 app.use(function (err, req, res, next) {
   console.log(err.message);
-  
   return res
     .status(err.status || 500)
     .json({ error: err, message: err.message });
 });
 
-// create a schema
-const productSchema={
-    name:String,
-    price:Number,
-    productId:Number
-}
-
-const ProductModel=mongoose.model("ProductModel",productSchema)
-
-app.get("/add", function(req,res){
-    res.sendFile('C:\proj\temp\DE-FRAUD\app\src\pages\add.js')
-})
-
-app.post("/add", function(req,res){
-    let newProductModel=new ProductModel({
-        name:req.body.name,
-    price:req.body.price,
-    productId:req.body.productId
-    });
-    newProductModel.save();
-    // res.redirect('/')
-})
 
 app.listen(8000, () => {
-// console.log(`hi ${dbConn}`)
- // perform a database connection when server starts
-dbo.connectToServer(function (err) {
-    if (err) console.error(err);
-    
- 
-  });
-
   console.log("Listening on 8000")
 })
 

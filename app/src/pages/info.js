@@ -96,7 +96,7 @@ export default function ProductInfo() {
             <div className="fullWidth">
 
                 <div className="buttons">
-                    <Link to="/buy" className="btn btn-primary btn-lg ">Verify</Link>
+                    <Link to="/buy" className="btn btn-primary btn-lg ">BUY</Link>
                 </div>
             </div>
         </div>
