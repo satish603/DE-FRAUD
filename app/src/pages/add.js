@@ -13,7 +13,7 @@ import '../static/css/login.scss';
 export default function AddProduct() {
 
     //local state
-    const [productId, setProductId] = useState('');
+    const [productId, setProductId] = useState('');      
     const setPopup = useSetRecoilState(popups)
 
     const schema = yup.object({
@@ -63,6 +63,7 @@ export default function AddProduct() {
                             validationSchema={schema}
                             onSubmit={addProduct}
                             initialValues={initialValues}
+                            method="post" action="/add"
                         >
                             <Fm key={1} className="form-signin" name="form">
 
@@ -105,6 +106,7 @@ export default function AddProduct() {
                                     </Form.Group>
                                 </Form.Row>
                                 <Button className="btn btn-signup" tabIndex="5" type="submit">Add Product</Button>
+                                
                             </Fm>
                         </Formik>
                     </div>

@@ -31,9 +31,10 @@ export default function BuyProduct() {
             const response = await provider.sendTransaction('buyProduct',[values.secretId],true)
             if (response) {
                 setSecretId('')
-                setPopup(`Product bought successfully`)
-                alert(`Product bought successfully`)
+                setPopup(`Product is genuine`)
+                alert(`Product is genuine`)
             }
+            
         }
         catch (error) {
             setPopup("Product is Fake")
@@ -90,7 +91,7 @@ export default function BuyProduct() {
 
                                     </Form.Row>
 
-                                    <Button className="btn btn-signup" tabIndex="4" type="submit">Buy</Button>
+                                    <Button className="btn btn-signup" tabIndex="4" type="submit">Verify</Button>
 
                                 </Fm>
                             </Formik>

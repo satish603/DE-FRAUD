@@ -98,7 +98,7 @@ contract Counterfeit1 is Ownable {
         // finding product from index
         bool isSold = products[productIndex].isSold;
 
-        require(isSold == false, "product is already sold");
+        require(isSold == false, "product is fake");
         _;
     }
     modifier onlySideContract() {
