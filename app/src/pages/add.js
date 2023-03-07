@@ -35,11 +35,9 @@ export default function AddProduct() {
             await provider.sendTransaction('addProduct', [values.productId, hash, values.price, values.name]);
             setProductId(values.productId)
             setPopup('Product added successfully');
-            alert('Product added successfully');
 
         } catch (error) {
             setPopup('Failed to add product');
-            alert('Failed to add product');
             console.log(error)
         }
     }
