@@ -1,6 +1,6 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
-const jwt = require('jsonwebtoken');
+// const cookieParser = require('cookie-parser');
+// const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const morgan = require('morgan')
 require('dotenv').config();
@@ -12,11 +12,12 @@ const mongoose=require('mongoose')
 var path = require('path');
 var mongodb = require('mongodb');
 var bodyParser = require('body-parser');
-
+const userModel = require("./models");
 // 
-const DB=`mongodb+srv://developer:MReLJ4uZoiUBLXuI@cluster0.pugmd0m.mongodb.net/products?retryWrites=true&w=majority`
+// const DB="mongodb+srv://developer:MReLJ4uZoiUBLXuI@cluster0.pugmd0m.mongodb.net/products?retryWrites=true&w=majority"
+const DB="mongodb+srv://defraudapp05:VeSeVvCmsbPxcHSE@defraud.cbywv1h.mongodb.net/?retryWrites=true&w=majority"
 
-// 
+// // 
 
 
 
@@ -27,10 +28,15 @@ mongoose.connect(DB,
 }).catch((err)=> console.log(err));
 
 
-// mongoose.connect(DB, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     });
+
+
+
+
+
+mongoose.connect(DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    });
 // 
 const middleware=(req,res,next)=>{
     console.log(`Hello my middleware`);
@@ -39,37 +45,37 @@ const middleware=(req,res,next)=>{
 
 
 //jwt check function
-function secure(req, res, next) {
-  try {
-    //exluding the paths
-    if (req.baseUrl.indexOf('login') !== -1) {
-      return next();
-    }
-    if (req.baseUrl.indexOf('signup') !== -1) {
-      return next();
-    }
-    if (req.baseUrl.indexOf('user') !== -1) {
-      return next();
-    }
+// function secure(req, res, next) {
+//   try {
+//     //exluding the paths
+//     if (req.baseUrl.indexOf('login') !== -1) {
+//       return next();
+//     }
+//     if (req.baseUrl.indexOf('signup') !== -1) {
+//       return next();
+//     }
+//     if (req.baseUrl.indexOf('user') !== -1) {
+//       return next();
+//     }
 
-    if (!req.cookies || !req.cookies.jwt) {
-      throw new Error();
-    }
+//     if (!req.cookies || !req.cookies.jwt) {
+//       throw new Error();
+//     }
 
-    const token = req.cookies.jwt;
+//     const token = req.cookies.jwt;
    
-    jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
-      if (err) {
-        throw new Error();
-      }
-      req.email = decoded;
-      next();
-    });
-  } catch (error) {
-    console.log('Token mismatch');
-    res.status(403).send();
-  }
-}
+//     jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
+//       if (err) {
+//         throw new Error();
+//       }
+//       req.email = decoded;
+//       next();
+//     });
+//   } catch (error) {
+//     console.log('Token mismatch');
+//     res.status(403).send();
+//   }
+// }
 
 app.use(cors({
   credentials: true,
@@ -77,15 +83,15 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(morgan('tiny'))
-app.use('*', secure);
+// app.use(cookieParser());
+// app.use(morgan('tiny'))
+// app.use('*', secure);
 app.use('/user', userRouter);
 app.use('/seller', sellerRouter);
 app.use('/owner', ownerRouter);
-app.get('/tokenVerify', (req, res) => {
-  res.sendStatus(200)
-})
+// app.get('/tokenVerify', (req, res) => {
+//   res.sendStatus(200)
+// })
 
 // get driver connection
 // const dbo = require("./db/conn")
@@ -109,19 +115,34 @@ const productSchema={
 
 const ProductModel=mongoose.model("ProductModel",productSchema)
 
-app.get("/add", function(req,res){
-    res.sendFile('C:\proj\temp\DE-FRAUD\app\src\pages\add.js')
-})
+// app.get("/add", function(req,res){
+//     res.sendFile('C:\proj\temp\DE-FRAUD\app\src\pages\add.js')
+// })
 
-app.post("/add", function(req,res){
+app.post("/add", async(req,res)=>{
     let newProductModel=new ProductModel({
-        name:req.body.name,
+    name:req.body.name,
     price:req.body.price,
     productId:req.body.productId
     });
-    newProductModel.save();
-    // res.redirect('/')
+    try{
+        await newProductModel.save();
+        res.send("Product added successfully")
+    }catch(err){
+      res.send(err)
+    }
 })
+app.post("/add_data", async (request, response) => {
+  const user = new userModel(request.body);
+
+  try {
+    await user.save();
+    response.send(user);
+  } catch (error) {
+    response.status(500).send(error);
+  }
+});
+
 
 app.listen(8000, () => {
 // console.log(`hi ${dbConn}`)
