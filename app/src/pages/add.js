@@ -105,7 +105,7 @@ export default function AddProduct() {
                                         <ErrorMessage name="productId" />
                                     </Form.Group>
                                 </Form.Row>
-                                <Button className="btn btn-signup" tabIndex="5" type="submit">Add Product</Button>
+                                <Button className="btn btn-signup" tabIndex="5" type="submit" >Add Product</Button>
                                 
                             </Fm>
                         </Formik>

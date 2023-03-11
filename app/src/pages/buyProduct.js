@@ -24,16 +24,26 @@ export default function BuyProduct() {
         secretId: secretId,
     }
 
-    async function buyProduct(values) {
+     async function buyProduct(values) {
         try {
             setLoading(true)
-
-            const response = await provider.sendTransaction('buyProduct',[values.secretId],true)
-            if (response) {
+            var prevTime=Date.now();
+            const response =  await provider.sendTransaction('buyProduct',[values.secretId],true)
+            
+            var curTime=Date.now();
+            var timeTaken=curTime-prevTime;
+            console.log(timeTaken)
+            if (response && timeTaken<= 80000 ) {
+                console.log(response)
                 setSecretId('')
                 setPopup(`Product is genuine`)
                 alert(`Product is genuine`)
             }
+            // else{
+            //     setPopup("Product is Fake")
+            // alert("Product is Fake")
+            
+            // }
             
         }
         catch (error) {

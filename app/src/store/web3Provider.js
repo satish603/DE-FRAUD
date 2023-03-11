@@ -7,6 +7,7 @@ const myPrivateEthereumNode = {
     nodeUrl: 'https://public-node.testnet.rsk.co', // node url
     chainId: 31, // chainid
 };
+
 //0x2d7882beDcbfDDce29Ba99965dd3cdF7fcB10A1e
 const provider = {
     contractAddress: '0xac9c38118f05792Bf379479E3912F35d17F65819',

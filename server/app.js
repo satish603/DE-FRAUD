@@ -14,8 +14,7 @@ var mongodb = require('mongodb');
 var bodyParser = require('body-parser');
 const userModel = require("./models");
 // 
-// const DB="mongodb+srv://developer:MReLJ4uZoiUBLXuI@cluster0.pugmd0m.mongodb.net/products?retryWrites=true&w=majority"
-const DB="mongodb+srv://defraudapp05:VeSeVvCmsbPxcHSE@defraud.cbywv1h.mongodb.net/?retryWrites=true&w=majority"
+const DB=`mongodb+srv://defraudapp05:VeSeVvCmsbPxcHSE@defraud.cbywv1h.mongodb.net/?retryWrites=true&w=majority`
 
 // // 
 
@@ -121,6 +120,7 @@ const ProductModel=mongoose.model("ProductModel",productSchema)
 
 app.post("/add", async(req,res)=>{
     let newProductModel=new ProductModel({
+    name:req.body.name,
     name:req.body.name,
     price:req.body.price,
     productId:req.body.productId

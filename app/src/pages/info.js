@@ -35,7 +35,8 @@ export default function ProductInfo() {
 
             }
             catch (e) {
-                setPopup("Product Already Sold")
+                // product is sold
+                setPopup("Product is sold")
                 console.error(e);
             }
             finally {
