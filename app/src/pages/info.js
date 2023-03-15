@@ -18,15 +18,28 @@ export default function ProductInfo() {
 
 
         async function fetchData (){
-            fetch("http://localhost:8000/product_details/"+productId)
-              .then(response => {
-                return response.json()
-              })
-              .then(data => {
-                setProductInfo(data);
-                setLoading(false);
-              })
+            try{
+              fetch("http://localhost:8000/product_details/"+productId)
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                  }
+                  return response.json()
+                })
+                .then(data => {
+                  setProductInfo(data);
+                  setLoading(false);
+                })
+                .catch(error => {
+                  setPopup("Failed to fetch product info")
+                  console.log(error);
+                  setLoading(false);
+                });
+            }catch(e){
+              console.log(e);
+            }
           }
+          
 
           console.log(productInfo);
           fetchData();
@@ -111,9 +124,9 @@ export default function ProductInfo() {
             </div>
             <div className="fullWidth">
 
-                <div className="buttons">
+                {/* <div className="buttons">
                     <Link to="/buy" className="btn btn-primary btn-lg ">Verify</Link>
-                </div>
+                </div> */}
             </div>
         </div>
 
