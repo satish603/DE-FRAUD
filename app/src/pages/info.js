@@ -6,6 +6,7 @@ import { popups as pp } from '../store/atoms'
 import provider from '../store/web3Provider'
 import '../static/css/info.scss';
 
+
 export default function ProductInfo() {
 
     const [productInfo, setProductInfo] = useState('');
@@ -19,7 +20,7 @@ export default function ProductInfo() {
 
         async function fetchData (){
             try{
-              fetch("http://localhost:8000/product_details/"+productId)
+              await fetch("http://localhost:8000/product_details/"+productId)
                 .then(response => {
                   if (!response.ok) {
                     throw new Error("Network response was not ok");
@@ -33,6 +34,7 @@ export default function ProductInfo() {
                 .catch(error => {
                   setPopup("Failed to fetch product info")
                   console.log(error);
+                  window.location.replace("/")
                   setLoading(false);
                 });
             }catch(e){
