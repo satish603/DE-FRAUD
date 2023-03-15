@@ -41,22 +41,23 @@ app.post("/add_product", async (request, response) => {
 app.get("/product_details/:id", async (request, response) => {
   const productId = request.params.id;
   try {
-    const product = await ProductModel.findOne({ productId: productId });
+    const product = await userModel.findOne({ productId: productId });
     response.send(product);
   } catch (error) {
     console.error(error);
     response.status(500).send("Error fetching product details");
   }
 });
-app.get("/verify", async (request, response) => {
-    const users = await Verify.find({});
 
-  try {
-    response.send(users);
-  } catch (error) {
-    response.status(500).send(error);
-  }
-  });
+// app.get("/verify", async (request, response) => {
+//     const users = await Verify.find({});
+
+//   try {
+//     response.send(users);
+//   } catch (error) {
+//     response.status(500).send(error);
+//   }
+//   });
 
 app.listen(8000, () => {
   console.log("Listening on 8000")

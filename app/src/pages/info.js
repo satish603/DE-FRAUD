@@ -16,35 +16,50 @@ export default function ProductInfo() {
 
     useEffect(() => {
 
-        async function fetchProductInfo() {
-            try {
-                const response = await provider.callTransaction('productDetails', [productId])
-                setProductInfo(response);
-            }
-            catch (e) {
-                setPopup("Failed to fetch product info")
-                console.error(e);
-            }
-        }
 
-        async function fetchSellerInfo() {
-            try {
-                const response = await provider.callTransaction('productSeller', [productId])
+        async function fetchData (){
+            fetch("http://localhost:8000/product_details/"+productId)
+              .then(response => {
+                return response.json()
+              })
+              .then(data => {
+                setProductInfo(data);
+                setLoading(false);
+              })
+          }
 
-                setSellerInfo(response);
+          console.log(productInfo);
+          fetchData();
 
-            }
-            catch (e) {
-                // product is sold
-                setPopup("Product is sold")
-                console.error(e);
-            }
-            finally {
-                setLoading(false)
-            }
-        }
-        fetchProductInfo();
-        fetchSellerInfo();
+        // async function fetchProductInfo() {
+        //     try {
+        //         const response = await provider.callTransaction('productDetails', [productId])
+        //         setProductInfo(response);
+        //     }
+        //     catch (e) {
+        //         setPopup("Failed to fetch product info")
+        //         console.error(e);
+        //     }
+        // }
+
+        // async function fetchSellerInfo() {
+        //     try {
+        //         const response = await provider.callTransaction('productSeller', [productId])
+
+        //         setSellerInfo(response);
+
+        //     }
+        //     catch (e) {
+        //         // product is sold
+        //         setPopup("Product is sold")
+        //         console.error(e);
+        //     }
+        //     finally {
+        //         setLoading(false)
+        //     }
+        // }
+        // fetchProductInfo();
+        // fetchSellerInfo();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -77,7 +92,7 @@ export default function ProductInfo() {
                         </div>
                     </div>
                 </div>
-                <div className="right">
+                {/* <div className="right">
                     <div>
                         <div className="product-details">
                             <h2>Seller Info</h2>
@@ -92,7 +107,7 @@ export default function ProductInfo() {
 
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="fullWidth">
 
