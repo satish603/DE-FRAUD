@@ -15,7 +15,7 @@ export default function AddProduct() {
     //local state
     const [productId, setProductId] = useState('');      
     const setPopup = useSetRecoilState(popups)
-
+    // add from data to mongodb
     const schema = yup.object({
         name: yup.string().required('Required!').max(250, 'ProductName Should be less than 250 characters').test('no Num', "Number not allowed", async (val) => { if (val) { return await !val.match(/[0-9]+/) } return false }).test('noSpecial', "Special characters not allowed", async (val) => { if (val) { return await val.match(/[a-z]/i) } return false }),
         price: yup.string().required('Required!'),
@@ -28,19 +28,46 @@ export default function AddProduct() {
         productId: "",
     }
 
+    // async function addProduct(values) {
+    //     try {
+    //         // send transaction for adding a product....
+    //         const hash = provider.keccakHash(values.productId)
+    //         await provider.sendTransaction('addProduct', [values.productId, hash, values.price, values.name]);
+
+    //         setProductId(values.productId)
+    //         setPopup('Product added successfully');
+    //         alert('Product added successfully');
+
+    //     } catch (error) {
+    //         setPopup('Failed to add product');
+    //         alert('Failed to add product');
+    //         console.log(error)
+    //     }
+    // }
     async function addProduct(values) {
         try {
-            // send transaction for adding a product....
-            const hash = provider.keccakHash(values.productId)
-            await provider.sendTransaction('addProduct', [values.productId, hash, values.price, values.name]);
-            setProductId(values.productId)
-            setPopup('Product added successfully');
-            alert('Product added successfully');
-
+          // send transaction for adding a product....
+          const hash = provider.keccakHash(values.productId)
+          await provider.sendTransaction('addProduct', [values.productId, hash, values.price, values.name]);
+      
+          setProductId(values.productId)
+          setPopup('Product added successfully');
+          alert('Product added successfully');
+      
+          // Make HTTP request to add product data to MongoDB
+          const response = await fetch('http://localhost:8000/add_product', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+          });
+          const data = await response.json();
+          console.log(data);
         } catch (error) {
-            setPopup('Failed to add product');
-            alert('Failed to add product');
-            console.log(error)
+          setPopup('Failed to add product');
+          alert('Failed to add product');
+          console.log(error)
         }
     }
 

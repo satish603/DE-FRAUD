@@ -9,7 +9,11 @@ const ownerOp = {
         `addProduct('${productId}', '${secretId}', '${price}', '${name}')`,
         privateKey,
       );
+      console.log(signedTransaction);
+      console.log("I am here signedTransaction in addproduct");
       const result = await common.sendTransaction(signedTransaction);
+      console.log(result);
+      console.log("I am here result in addproduct of ownerOp file");
       return result;
     } catch (error) {
       console.log(error.message);
