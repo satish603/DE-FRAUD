@@ -5,7 +5,7 @@ import { useSetRecoilState } from 'recoil'
 import { popups as pp } from '../store/atoms'
 import provider from '../store/web3Provider'
 import '../static/css/info.scss';
-
+import Error_return from '../components/error_return';
 
 export default function ProductInfo() {
 
@@ -14,6 +14,7 @@ export default function ProductInfo() {
     const [loading, setLoading] = useState(true);
     const setPopup = useSetRecoilState(pp);
     const productId = window.location.pathname.split('/')[2];
+    const [Error_found, setError] = useState(false);  
 
     useEffect(() => {
 
@@ -32,9 +33,10 @@ export default function ProductInfo() {
                   setLoading(false);
                 })
                 .catch(error => {
-                  setPopup("Failed to fetch product info")
+                  setPopup("The Product is Fake!")
                   console.log(error);
-                  window.location.replace("/")
+                //   window.location.replace("/")
+                    setError(true);
                   setLoading(false);
                 });
             }catch(e){
@@ -78,9 +80,12 @@ export default function ProductInfo() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-
+    
     if (loading) {
         return (<Loader />)
+    }
+    if(Error_found){
+        return <Error_return />
     }
     return (
 

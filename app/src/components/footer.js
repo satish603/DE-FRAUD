@@ -27,9 +27,9 @@ function Footer() {
                             <li>
                                 <Link to='/'>Verify</Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link to='/buy'>Buy</Link>
-                            </li>
+                            </li> */}
 
                         </ul>
                     </div>
@@ -42,11 +42,11 @@ function Footer() {
                                     Add Product
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link to="/addowner">
                                     Transfer Owner
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                     <div className="col-lg-2 offset-lg-0 col-sm-4 offset-sm-0  list">

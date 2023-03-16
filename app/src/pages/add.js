@@ -10,10 +10,12 @@ import provider from '../store/web3Provider'
 //css
 import '../static/css/login.scss';
 
+
 export default function AddProduct() {
 
     //local state
-    const [productId, setProductId] = useState('');      
+    const [productId, setProductId] = useState('');    
+    
     const setPopup = useSetRecoilState(popups)
     // add from data to mongodb
     const schema = yup.object({
@@ -46,6 +48,14 @@ export default function AddProduct() {
     // }
     async function addProduct(values) {
         try {
+            //to check if product already exists
+            const check = await fetch('http://localhost:8000/product_details/'+values.productId);
+            const checkData = await check.json();
+            if(checkData){
+                setPopup('Product Id already exists');
+                alert('Product Id already exists');
+                return;
+            }
           // send transaction for adding a product....
           const hash = provider.keccakHash(values.productId)
           await provider.sendTransaction('addProduct', [values.productId, hash, values.price, values.name]);
@@ -53,7 +63,7 @@ export default function AddProduct() {
           setProductId(values.productId)
           setPopup('Product added successfully');
           alert('Product added successfully');
-      
+            
           // Make HTTP request to add product data to MongoDB
           const response = await fetch('http://localhost:8000/add_product', {
             method: 'POST',
@@ -71,6 +81,8 @@ export default function AddProduct() {
         }
     }
 
+    
+    
     if(productId){
         return (
             <Redirect to={`/qrcode/${productId}`} />
