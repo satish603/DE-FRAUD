@@ -1,4 +1,3 @@
-# DE-FRAUD
 # ABI in Smart Contracts
 
 ABI stands for Application Binary Interface. In the context of smart contracts, the ABI is a specification of the interface of the contract, which defines how the contract can be interacted with.
@@ -94,3 +93,10 @@ The `provider` object also has the following methods:
 - `setContract()`: Initializes the smart contract instance and the buy contract instance.
 - `callTransaction(method, parameters)`: Calls a non-transaction method on the smart contract.
 - `sendTransaction(method, parameters, toBuy)`: Sends a transaction to the smart contract, either to buy a product or to call a transaction method.
+
+### notes
+`contractAddress` is a property in the JavaScript module that interacts with a smart contract on the blockchain. It refers to the Ethereum address of the smart contract being interacted with. The smart contract is a self-executing contract with the terms of the agreement between buyer and seller being directly written into lines of code. When the conditions of the contract are met, such as the transfer of a certain amount of cryptocurrency, the contract executes itself according to the code written.
+
+`buyAddress` is an Ethereum address of the contract for buying products. It is the address of a smart contract on the blockchain that allows users to purchase products or services using cryptocurrency.
+
+`keccakHash(secretId)` is a function that takes a secret ID as input and returns the Keccak256 hash of the input. Keccak256 is a cryptographic hash function used in Ethereum and other blockchain networks to secure transactions and store data. The keccakHash function is commonly used in smart contract development to securely store and verify data.
