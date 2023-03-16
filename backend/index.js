@@ -42,6 +42,11 @@ app.get("/product_details/:id", async (request, response) => {
   const productId = request.params.id;
   try {
     const product = await userModel.findOne({ productId: productId });
+    
+    if (!product) {
+      return response.status(404).send("Product not found");
+    }
+    
     response.send(product);
   } catch (error) {
     console.error(error);
@@ -49,15 +54,7 @@ app.get("/product_details/:id", async (request, response) => {
   }
 });
 
-// app.get("/verify", async (request, response) => {
-//     const users = await Verify.find({});
 
-//   try {
-//     response.send(users);
-//   } catch (error) {
-//     response.status(500).send(error);
-//   }
-//   });
 
 app.listen(8000, () => {
   console.log("Listening on 8000")

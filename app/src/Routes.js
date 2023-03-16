@@ -10,16 +10,16 @@ import { useRecoilValue } from 'recoil'
 const Home = lazy(() => import(/* webpackChunkName: "HOME" */ './pages/home'))
 const Login = lazy(() => import(/*webpackChunkName: "LOGIN" */ './pages/login'))
 const Info = lazy(() => import(/*webpackChunkName: "INFO" */ './pages/info'))
-const BuyProduct = lazy(() => import(/*webpackChunkName: "BUYPRODUCT" */ './pages/buyProduct'))
+// const BuyProduct = lazy(() => import(/*webpackChunkName: "BUYPRODUCT" */ './pages/buyProduct'))
 const AddProduct = lazy(() => import(/*webpackChunkName: "ADD" */ './pages/add'))
-const Sell = lazy(() => import(/*webpackChunkName: "SELL" */ './pages/sell'))
+// const Sell = lazy(() => import(/*webpackChunkName: "SELL" */ './pages/sell'))
 const Products = lazy(() => import('./pages/products'))
 const ProductInfo = lazy(() => import('./pages/productInfo'))
 const Scan = lazy(() => import('./pages/scan'))
 const QRCode = lazy(() => import('./pages/qrcode'))
-const AddOwner = lazy(() => import('./pages/addOwner'))
-const RegisterSeller = lazy(() => import('./pages/registerSeller'))
-const SideContract = lazy(() => import('./pages/makeSideContract'))
+// const AddOwner = lazy(() => import('./pages/addOwner'))
+// const RegisterSeller = lazy(() => import('./pages/registerSeller'))
+// const SideContract = lazy(() => import('./pages/makeSideContract'))
 const About = lazy(() => import('./pages/about'))
 
 
@@ -39,33 +39,33 @@ function Routes() {
           <PrivateRoute path="/product/:id" >
             <Info />
           </PrivateRoute>
-          <PrivateRoute path='/buy' exact >
+          {/* <PrivateRoute path='/buy' exact >
             <BuyProduct />
-          </PrivateRoute>
+          </PrivateRoute> */}
           <PrivateRoute path='/productinfo/:id' >
             <ProductInfo />
           </PrivateRoute>
           <PrivateRoute path='/add' >
             <AddProduct />
           </PrivateRoute>
-          <PrivateRoute path='/side' >
+          {/* <PrivateRoute path='/side' >
             <SideContract />
-          </PrivateRoute>
-          <PrivateRoute path='/sell' >
+          </PrivateRoute> */}
+          {/* <PrivateRoute path='/sell' >
             <Sell />
-          </PrivateRoute>
+          </PrivateRoute> */}
           <PrivateRoute path='/products' >
             <Products />
           </PrivateRoute>
           <PrivateRoute path='/about' >
             <About/>
           </PrivateRoute>
-          <PrivateRoute path='/addowner'>
+          {/* <PrivateRoute path='/addowner'>
             <AddOwner />
-          </PrivateRoute>
-          <PrivateRoute path='/registerSeller'>
+          </PrivateRoute> */}
+          {/* <PrivateRoute path='/registerSeller'>
             <RegisterSeller />
-          </PrivateRoute>
+          </PrivateRoute> */}
         </Switch>
         <Route component={Footer} />
       </Router>
