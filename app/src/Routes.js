@@ -8,6 +8,7 @@ import Toast from './Toast.js'
 import { login as ll } from './store/atoms'
 import { useRecoilValue } from 'recoil'
 const Home = lazy(() => import(/* webpackChunkName: "HOME" */ './pages/home'))
+const HomePage = lazy(() => import(/* webpackChunkName: "HOME" */ './pages/homePage'))
 const Login = lazy(() => import(/*webpackChunkName: "LOGIN" */ './pages/login'))
 const Info = lazy(() => import(/*webpackChunkName: "INFO" */ './pages/info'))
 // const BuyProduct = lazy(() => import(/*webpackChunkName: "BUYPRODUCT" */ './pages/buyProduct'))
@@ -33,6 +34,7 @@ function Routes() {
         <Route component={Header} />
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/home" exact component={HomePage} />
           <Route path="/scan" exact component={Scan} />
           <Route path='/qrcode' component={QRCode} />
           <Route path='/login' component={Login} />

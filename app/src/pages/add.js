@@ -56,6 +56,7 @@ export default function AddProduct() {
             });
             const data = await response.json();
             console.log(data);
+            // alert('Product added successfully');
         } catch (error) {
             setPopup('Failed to add product');
             alert('Failed to add product');
