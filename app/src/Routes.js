@@ -17,7 +17,6 @@ const AddProduct = lazy(() => import(/*webpackChunkName: "ADD" */ './pages/add')
 const Products = lazy(() => import('./pages/products'))
 const ProductInfo = lazy(() => import('./pages/productInfo'))
 const Scan = lazy(() => import('./pages/scan'))
-const Homes = lazy(() => import('./pages/home'))
 const QRCode = lazy(() => import('./pages/qrcode'))
 // const AddOwner = lazy(() => import('./pages/addOwner'))
 // const RegisterSeller = lazy(() => import('./pages/registerSeller'))
@@ -34,9 +33,8 @@ function Routes() {
       <Router>
         <Route component={Header} />
         <Switch>
-          <Route path="/" exact component={HomePage} />
-          {/* <Route path="/home" exact component={HomePage} /> */}
-          <Route path="/verify" exact component={Homes} />
+          <Route path="/" exact component={Home} />
+          <Route path="/home" exact component={HomePage} />
           <Route path="/scan" exact component={Scan} />
           <Route path='/qrcode' component={QRCode} />
           <Route path='/login' component={Login} />
