@@ -44,6 +44,7 @@ export default function AddProduct() {
 
             setProductId(values.productId)
             setPopup('Product added successfully');
+            alert('Product added successfully');
 
             // Make HTTP request to add product data to MongoDB
             const response = await fetch('http://localhost:8000/add_product', {
@@ -58,6 +59,7 @@ export default function AddProduct() {
             // alert('Product added successfully');
         } catch (error) {
             setPopup('Failed to add product');
+            alert('Failed to add product');
             console.log(error)
         }
     }
