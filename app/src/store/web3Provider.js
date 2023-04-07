@@ -3,15 +3,17 @@ import Web3 from 'web3';
 import Abi from './abi'
 import keccak256 from 'keccak256'
 // private ganache node...
+// eslint-disable-next-line
 const myPrivateEthereumNode = {
     nodeUrl: 'https://public-node.testnet.rsk.co', // node url
     chainId: 31, // chainid
+
 };
 
 //0x2d7882beDcbfDDce29Ba99965dd3cdF7fcB10A1e
 const provider = {
     contractAddress: '0xac9c38118f05792Bf379479E3912F35d17F65819',
-    buyAddress: '0xabd895468ab7c4e1d2bf80cf66d529834c68b478',
+    buyAddress: '0x63a8656265d04Fe4c11F4b81e3d1E061b582177d',
     w3: null,
     account: null,
     contract: null,
@@ -49,8 +51,11 @@ const provider = {
     },
 
     setProvider: async function () {
-        this.portis = await new Portis('1368ff81-9bd9-4ea2-b5da-3c24b3796f53', myPrivateEthereumNode);
+        // this.portis = await new Portis('42dca739-f49f-4002-a181-82cdaadc7dd5', myPrivateEthereumNode);
+        // const portis = new Portis('d9b6a04e-d7f9-4d8d-aa7f-32c30cd99273', 'mainnet');
+        this.portis = await new Portis('d9b6a04e-d7f9-4d8d-aa7f-32c30cd99273', 'mainnet');
         this.w3 = await new Web3(this.portis.provider)
+   
     },
 
     setContract: async function () {
@@ -81,8 +86,8 @@ const provider = {
                 const transaction = {
                     from: this.account,
                     to: this.buyAddress,
-                    gas: 6800000,
-                    gasPrice:65164000
+                    gas: 500000,
+                    gasPrice:0
                 }
                 const receipt = await this.buyContract.methods[method](...parameters).send(transaction);
                 console.log(receipt);
@@ -92,8 +97,8 @@ const provider = {
                 const transaction = {
                     from: this.account,
                     to: this.contractAddress,
-                    gas: 6800000,
-                    gasPrice:65164000
+                    gas: 500000,
+                    gasPrice:0
                 }
                 const receipt = await this.contract.methods[method](...parameters).send(transaction);
                 console.log(receipt);

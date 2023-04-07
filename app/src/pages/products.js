@@ -38,7 +38,7 @@ export default function Products() {
             setLoading(false)
         }
     })();
-        setProducts([[4356, "this is medicine", "Aspirin"], [5556, "this is branded shoe", "Adidas Neo"]])
+        // setProducts([[4356, "this is medicine", "Aspirin"], [5556, "this is branded shoe", "Adidas Neo"]])
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
