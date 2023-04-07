@@ -64,10 +64,12 @@ function Header() {
         try {
             await provider.login()
             setPopup("Logged in successfully")
+            alert("Logged in successfully")
         }
         catch (error) {
             console.log(error.message);
             setPopup("Failed to login")
+            alert("Failed to login")
         }
         finally {
             await isLoggedin()
@@ -119,7 +121,7 @@ function Header() {
                             <img src={locaIco} alt="location icon" />
                         </div>
                         <div className="location">
-                            <Link to='/buy'>
+                            <Link to='/verify'>
                                 <h6 className="ml-2">
                                     Enter secret key here!
                                 </h6>

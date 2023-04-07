@@ -1,11 +1,8 @@
 import React from 'react'
-
 import girl from '../static/images/scanner.png'
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import '../static/css/about.css';
-
-
 function About() {
     return (
 
@@ -20,15 +17,6 @@ function About() {
                         </h6>
                         <h5 className="para1">🙌99% helpful for detection the product details accurately.
                         </h5>
-
-
-                        {/* <a href='https://rzp.io/l/dkqGdj0F'> */}
-                            <button type="button" className="btn btn-info button1">Review
-                            </button>
-                        {/* </a> */}
-                        {/* <a href="https://celo-crypocurrency-demo.vercel.app/">
-                            <button type="button" className="btn btn-info button1">Celo Donation</button>
-                        </a> */}
                     </div>
                 </Col>
                 <Col lg={4}>

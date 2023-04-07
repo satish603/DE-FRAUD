@@ -1,18 +1,7 @@
 import { Link } from 'react-router-dom'
-// import { useRecoilState } from 'recoil';
-// import { type as ti} from '../store/atoms';
-
-//icons
 import '../static/css/footer.scss';
-
-//logo image
 import logo from '../static/images/logo.png';
-
 function Footer() {
-
-    // const [type, setType] = useRecoilState(ti);
-
-
     return (
         <footer className="footersection">
             <div className="container-fluid">
@@ -25,12 +14,8 @@ function Footer() {
                         <h2>User</h2>
                         <ul >
                             <li>
-                                <Link to='/'>Verify</Link>
+                                <Link to='/verify'>Verify</Link>
                             </li>
-                            <li>
-                                <Link to='/buy'>Buy</Link>
-                            </li>
-
                         </ul>
                     </div>
                     <div className="col-lg-2 offset-lg-0 col-sm-4 offset-sm-2 list">
@@ -42,47 +27,23 @@ function Footer() {
                                     Add Product
                                 </Link>
                             </li>
-                            <li>
-                                <Link to="/addowner">
-                                    Transfer Owner
-                                </Link>
-                            </li>
+
                         </ul>
                     </div>
                     <div className="col-lg-2 offset-lg-0 col-sm-4 offset-sm-0  list">
-
-                        {/* <h2>Seller</h2> */}
                         <ul >
-                            {/* <li>
-                                <Link to="/sell">Sell</Link>
-                            </li> */}
-                            <li>
-                                {/* <Link to="/products">
-                                    Products
-                                </Link> */}
-                            </li>
-                            {/* About Us */}
+                            
                             <li>
                                 <Link to="/about">
-                                   About Us
+                                    About Us
                                 </Link>
-                            </li>
-                            <li>
-                                {/* <Link to="/registerSeller">
-                                    Register Seller
-                                </Link> */}
-                            </li>
-                            <li>
-                                {/* <Link to="/side">
-                                   Side
-                                </Link> */}
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div className="copyrights">
-                <Link to="/">@2022 Copyright D-Fraud</Link>
+                <Link to="/">@2023 Copyright D-Fraud</Link>
             </div>
         </footer>
     )

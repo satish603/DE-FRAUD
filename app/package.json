@@ -6,7 +6,7 @@
     "@portis/web3": "^3.0.3",
     "bootstrap": "^4.5.3",
     "formik": "^2.2.5",
-    "jquery": "^3.5.1",
+    "jquery": "^3.6.4",
     "keccak256": "^1.0.2",
     "node-gyp": "^9.3.0",
     "nodemon": "^2.0.20",
