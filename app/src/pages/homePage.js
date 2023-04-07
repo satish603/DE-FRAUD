@@ -120,10 +120,14 @@ const Home = () => {
 
                 <div class="col-md-6 head-left">
                     <h1 class="hl-line">Add your innovations and secure them!</h1>
-                    <button type="button" class="btn btn-lg btn-dark download-btn" 
-                    onclick="window.location.href='http://localhost:3000/add';"
-                    > Add product</button>
-                    <button type="button" class="btn btn-lg btn-dark download-btn"> Verify product</button>
+                    <a href="http://localhost:3000/add"><button type="button" class="btn btn-lg btn-dark download-btn"
+                        
+
+                    > Add product</button></a>
+                    
+                    <a href="http://localhost:3000/verify"><button type="button" class="btn btn-lg btn-dark download-btn"
+                        onclick="window.location.href='http://localhost:3000/verify';"
+                    > Verify product</button></a>
                 </div>
 
 
@@ -179,31 +183,31 @@ const Home = () => {
 
             </Carousel>
 
-            
+
             <div >
                 {/* cards */}
-<br/>
+                <br />
                 <div class="newline">
 
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="card">
+                            <div class="card crd">
                                 <div class="card-body">
                                     <h5 class="card-title">To detect counterfeit products</h5>
                                     <p class="card-text"> To ensures traceability of
-a product.It uses QR code for authenticating the product originality that shows the details of the for product.</p>
+                                        a product.It uses QR code for authenticating the product originality that shows the details of the for product.</p>
                                     <a href="http://localhost:3000/" class="btn btn-primary">Verify</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="card">
+                            <div class="card crd">
                                 <div class="card-body">
                                     <h5 class="card-title">Manufactuter adds brands products</h5>
                                     <p class="card-text">This is how the manufacturer is
-able to prove their product is authentic and thus fake product can be detected easily.
-</p>
+                                        able to prove their product is authentic and thus fake product can be detected easily.
+                                    </p>
                                     <a href="http://localhost:3000/add" class="btn btn-primary">Add product</a>
                                 </div>
                             </div>
@@ -212,27 +216,27 @@ able to prove their product is authentic and thus fake product can be detected e
                 </div>
 
                 {/* counter */}
-            <div class="wrapper">
-                <div class="counter col_fourth">
-                    <i class="fa fa-code fa-2x"></i>
-                    <h2 class="timer count-title count-number" data-to="300" data-speed="1500"></h2>
-                    <p class="count-text ">Users</p>
+                <div class="wrapper wrap">
+                    <div class="counter col_fourth cnt">
+                        <i class="fa fa-code fa-2x"></i>
+                        <h2 class="timer count-title count-number" data-to="200" data-speed="1500"></h2>
+                        <p class="count-text ">Users</p>
+                    </div>
+
+                    <div class="counter col_fourth cnt">
+                        <i class="fa fa-coffee fa-2x"></i>
+                        <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
+                        <p class="count-text ">Products added successfully</p>
+                    </div>
+
+                    <div class="counter col_fourth cnt">
+                        <i class="fa fa-lightbulb-o fa-2x"></i>
+                        <h2 class="timer count-title count-number" data-to="119" data-speed="1500"></h2>
+                        <p class="count-text ">Customers verified product</p>
+                    </div>
+
+
                 </div>
-
-                <div class="counter col_fourth">
-                    <i class="fa fa-coffee fa-2x"></i>
-                    <h2 class="timer count-title count-number" data-to="1700" data-speed="1500"></h2>
-                    <p class="count-text ">Products added successfully</p>
-                </div>
-
-                <div class="counter col_fourth">
-                    <i class="fa fa-lightbulb-o fa-2x"></i>
-                    <h2 class="timer count-title count-number" data-to="11900" data-speed="1500"></h2>
-                    <p class="count-text ">Customers verified product</p>
-                </div>
-
-
-            </div>
 
 
 

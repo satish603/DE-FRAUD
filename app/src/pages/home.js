@@ -44,7 +44,7 @@ function Home() {
 
                                 <Form.Row>
                                     <Form.Group as={Col} controlId="1">
-                                        <Form.Label>Product Id</Form.Label>
+                                        <Form.Label className='label'>Product Id</Form.Label>
                                         <div className="d-flex">
 
                                             <Field
