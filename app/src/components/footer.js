@@ -14,7 +14,7 @@ function Footer() {
                         <h2>User</h2>
                         <ul >
                             <li>
-                                <Link to='/'>Verify</Link>
+                                <Link to='/verify'>Verify</Link>
                             </li>
                         </ul>
                     </div>
@@ -32,7 +32,7 @@ function Footer() {
                     </div>
                     <div className="col-lg-2 offset-lg-0 col-sm-4 offset-sm-0  list">
                         <ul >
-                            About Us
+                            
                             <li>
                                 <Link to="/about">
                                     About Us
@@ -43,7 +43,7 @@ function Footer() {
                 </div>
             </div>
             <div className="copyrights">
-                <Link to="/">@2022 Copyright D-Fraud</Link>
+                <Link to="/">@2023 Copyright D-Fraud</Link>
             </div>
         </footer>
     )

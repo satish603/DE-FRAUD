@@ -71,7 +71,15 @@
     /* font-family: 'Roboto Mono', monospace; */
 }
 
+.crd{
+    margin-top: 70px;
+    background-image: linear-gradient(to right, #4269b3, #ffffff);
+    color: black;
+    
+}
+
 .headd-2{
+    font-family: 'Open Sans';
     font-family: 'Roboto Mono', monospace;
 }
 
@@ -131,4 +139,20 @@ body {
   .count-title { font-size: 40px; font-weight: normal;  margin-top: 10px; margin-bottom: 0; text-align: center; }
   .count-text { font-size: 13px; font-weight: normal;  margin-top: 10px; margin-bottom: 0; text-align: center; }
   .fa-2x { margin: 0 auto; float: none; display: table; color: #4ad1e5; }
+
+.wrap{
+    margin-top:70px;
+    margin-left: 320px;
+    color: black;
+}
+
+.cnt{
+    border-radius: 25px;
+    border: 1px solid rgb(6, 6, 150);
+  /* border-color: blue; */
+    
+}
+
+  /* contact */
+
   

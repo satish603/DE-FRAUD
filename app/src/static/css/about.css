@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@300&family=Roboto+Condensed:wght@300&family=Roboto+Mono:wght@500&family=Roboto:wght@100&display=swap');
 
 .about {
     margin-top: 200px;
@@ -24,6 +25,7 @@
 }
 
 .head-ele {
+    font-family: 'Montserrat', sans-serif;
     font-family: 'Acme', sans-serif;
 
     text-align: center;
@@ -43,6 +45,7 @@
 }
 
 .para {
+    font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 25px;
@@ -50,12 +53,14 @@
 }
 
 .para1 {
+    font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Open Sans Condensed', sans-serif;
     margin-top: 35px;
 }
 
 .topic1 {
+    font-family: 'Montserrat', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 55px;
