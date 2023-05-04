@@ -3,4 +3,5 @@ bin
 node_modules
 mobileApp
 .env
+.vercel
 server/package-lock.json
