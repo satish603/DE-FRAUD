@@ -21,7 +21,7 @@ export default function ProductInfo() {
 
         async function fetchData (){
             try{
-              await fetch("http://localhost:8000/product_details/"+productId)
+              await fetch("https://defraud-backend-remake.vercel.app/product_details/"+productId)
                 .then(response => {
                   if (!response.ok) {
                     throw new Error("Network response was not ok");

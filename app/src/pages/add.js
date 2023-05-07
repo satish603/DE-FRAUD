@@ -31,7 +31,7 @@ export default function AddProduct() {
     async function addProduct(values) {
         try {
             // // to check if product already exists
-            const check = await fetch('http://localhost:8000/product_details/' + values.productId);
+            const check = await fetch('https://defraud-backend-remake.vercel.app/product_details/' + values.productId);
             //check if product already exists
             if (check.status === 200) {
                 setPopup('Product already exists');
@@ -46,7 +46,7 @@ export default function AddProduct() {
             setPopup('Product added successfully');
 
             // Make HTTP request to add product data to MongoDB
-            const response = await fetch('http://localhost:8000/add_product', {
+            const response = await fetch('https://defraud-backend-remake.vercel.app/add_product', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
